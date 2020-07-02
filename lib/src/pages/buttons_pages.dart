@@ -1,6 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+
+import 'dart:math';
 
 class ButtonsPage extends StatelessWidget {
   @override
@@ -9,6 +9,13 @@ class ButtonsPage extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           _fontApp(),
+          SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                _titles(),
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -54,6 +61,28 @@ class ButtonsPage extends StatelessWidget {
           child: pinkBox,
         ),
       ],
+    );
+  }
+
+  Widget _titles() {
+    return SafeArea (
+      child: Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Classify transaction",
+              style: TextStyle(color: Colors.white, fontSize: 30.0, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 16.0,),
+            Text(
+              "Classify this transaction in a particular category",
+              style: TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
